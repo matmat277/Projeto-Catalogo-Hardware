@@ -1,0 +1,11 @@
+# Dependências
+node_modules/
+
+# Arquivos compilados
+dist/
+
+# Configurações locais
+.env
+
+# Logs
+npm-debug.log*
