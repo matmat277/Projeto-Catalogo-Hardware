@@ -89,15 +89,18 @@ export default class MainScreen {
         continue;
       }
 
-      if (component.getStatus() !== ComponentStatus.AVAILABLE) {
-        mensagem = "Este componente não está disponível para montagem.";
-        continue;
+      try {
+        computer.adicionarComponente(component);
+        mensagem = "Componente adicionado.";
+        } catch (erro) {
+        if (erro instanceof Error) {
+          mensagem = erro.message;
+        } else {
+          mensagem = "Ocorreu um erro inesperado.";
+        }
       }
-
-      computer.adicionarComponente(component);
-      mensagem = "Componente adicionado";
-    }
-
+}
+1
     console.log("\n=== SEU COMPUTADOR ===");
     console.log(computer.getDescricaoBuild());
     console.log("Preço total: R$ " + computer.getPrecoTotal().toFixed(2));

@@ -1,4 +1,5 @@
 import { Component } from "./Component";
+import { ComponentType } from "./ComponentType";
 
 // Herança
 export default class PSU extends Component {
@@ -9,7 +10,7 @@ export default class PSU extends Component {
     price: number,
     public wattage: number,
   ) {
-    super(id, brand, model, price);
+    super(id, brand, model, price, ComponentType.PSU);
   }
 
   public override getDescription(): string {

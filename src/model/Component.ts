@@ -1,5 +1,6 @@
 // Classe abstrata
 import { ComponentStatus } from "./ComponentStatus";
+import { ComponentType } from "./ComponentType";
 
 export abstract class Component {
   constructor(
@@ -7,6 +8,7 @@ export abstract class Component {
     private brand: string,
     private model: string,
     private price: number,
+    private type: ComponentType,
     private status: ComponentStatus = ComponentStatus.AVAILABLE,
   ) {}
 
@@ -48,6 +50,14 @@ export abstract class Component {
 
   public setStatus(status: ComponentStatus): void {
     this.status = status;
+  }
+
+  public getType(): ComponentType {
+    return this.type;
+  }
+
+  public getSocket(): string | undefined {
+    return undefined;
   }
 
   public abstract getDescription(): string;

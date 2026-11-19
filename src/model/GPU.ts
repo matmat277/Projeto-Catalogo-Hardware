@@ -1,4 +1,5 @@
 import { Component } from "./Component";
+import { ComponentType } from "./ComponentType";
 
 // Herança
 export default class GPU extends Component {
@@ -9,7 +10,7 @@ export default class GPU extends Component {
     price: number,
     public vram: number,
   ) {
-    super(id, brand, model, price);
+    super(id, brand, model, price, ComponentType.GPU);
   }
 
   public override getDescription(): string {

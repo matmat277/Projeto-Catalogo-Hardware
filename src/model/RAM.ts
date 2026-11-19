@@ -1,4 +1,5 @@
 import { Component } from "./Component";
+import { ComponentType } from "./ComponentType";
 
 // Herança
 export default class RAM extends Component {
@@ -9,7 +10,7 @@ export default class RAM extends Component {
     price: number,
     public capacity: number,
   ) {
-    super(id, brand, model, price);
+    super(id, brand, model, price, ComponentType.RAM);
   }
 
   public override getDescription(): string {
