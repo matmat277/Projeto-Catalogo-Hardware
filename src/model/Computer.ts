@@ -34,8 +34,29 @@ export default class Computer {
         }
     }
 
+    if (component.getType() === ComponentType.CPU) {
+    const motherboard = this.components.find(
+        componente => componente.getType() === ComponentType.MOTHERBOARD
+    );
+
+    if (motherboard && component.getSocket() !== motherboard.getSocket()) {
+        throw new Error("O socket da CPU é incompatível com a placa-mãe.");
+    }
+    }
+
+    if (component.getType() === ComponentType.MOTHERBOARD) {
+    const cpu = this.components.find(
+        componente => componente.getType() === ComponentType.CPU
+    );
+
+    if (cpu && component.getSocket() !== cpu.getSocket()) {
+        throw new Error("O socket da placa-mãe é incompatível com a CPU.");
+    }
+    }
+
     this.components.push(component);
 }
+
 
   public getComponents(): Component[] {
     return [...this.components];

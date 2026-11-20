@@ -14,6 +14,10 @@ export default class Motherboard extends Component {
         super(id, brand, model, price, ComponentType.MOTHERBOARD);
     }
 
+    public override getSocket(): string {
+    return this.socket;
+}
+
     public override getDescription(): string {
         return `${this.getBrand()} ${this.getModel()} - ${this.socket} - ${this.formFactor}`;
     }
