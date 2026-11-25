@@ -2,6 +2,7 @@ import MainController from "../controller/MainController";
 import Computer from "../model/Computer";
 import { ComponentStatus } from "../model/ComponentStatus";
 import promptSync = require("prompt-sync");
+import MyError from "../model/MyError";
 
 export default class MainScreen {
   private prompt = promptSync();
@@ -93,7 +94,7 @@ export default class MainScreen {
         computer.adicionarComponente(component);
         mensagem = "Componente adicionado.";
         } catch (erro) {
-        if (erro instanceof Error) {
+        if (erro instanceof MyError) {
           mensagem = erro.message;
         } else {
           mensagem = "Ocorreu um erro inesperado.";

@@ -1,6 +1,7 @@
 import { Component } from "./Component";
 import { ComponentType } from "./ComponentType";
 import { ComponentStatus } from "./ComponentStatus";
+import MyError from "./MyError";
 
 export default class Computer {
   private components: Component[] = [];
@@ -28,7 +29,7 @@ export default class Computer {
         );
 
         if (jaExiste) {
-            throw new Error(
+            throw new MyError(
                 `Este computador já possui um componente do tipo ${component.getType()}.`
             );
         }
