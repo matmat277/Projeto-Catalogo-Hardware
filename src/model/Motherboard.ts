@@ -2,6 +2,7 @@
 import { Component } from "./Component";
 import { ComponentType } from "./ComponentType";
 
+
 export default class Motherboard extends Component {
     constructor(
         id: number,
