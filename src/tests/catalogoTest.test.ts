@@ -1,6 +1,7 @@
 import Computer from "../model/Computer"
 import CPU  from "../model/CPU"
 import Motherboard from "../model/Motherboard";
+import { ComponentStatus } from "../model/ComponentStatus";
 
 describe("Computer", () => {
   test("deve adicionar um componente disponível", () => {
@@ -106,6 +107,25 @@ test("não deve permitir Placa mãe e CPU incompatível", () => {
       computer.adicionarComponente(cpu)
   }).toThrow();
 
+})
+
+test("não deve permitir adicionar componente indisponível", () => {
+  const computer = new Computer();
+
+  const cpu = new CPU(
+        1,
+        "AMD",
+        "Ryzen 5 5600",
+        850,
+        6,
+        "AM4"
+    );
+
+    cpu.setStatus(ComponentStatus.OUT_OF_STOCK);
+
+    expect(() => {
+        computer.adicionarComponente(cpu);
+    }).toThrow();
 })
 
 });
