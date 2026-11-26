@@ -10,7 +10,7 @@ module.exports = {
   },
 };
 
-/*module.exports = {
+module.exports = {
  preset: 'ts-jest',
  testEnvironment: 'node',
  transform: {
@@ -18,4 +18,4 @@ module.exports = {
  },
  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
  roots: ['<rootDir>'],
-};*/
+};
